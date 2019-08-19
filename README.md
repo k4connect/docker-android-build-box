@@ -1,7 +1,7 @@
 # Docker Android Build Box
 
-[![docker icon](https://dockeri.co/image/mingc/android-build-box)](https://hub.docker.com/r/mingc/android-build-box/)
-[![Build Status](https://travis-ci.org/mingchen/docker-android-build-box.svg?branch=master)](https://travis-ci.org/mingchen/docker-android-build-box)
+
+[![docker icon](https://dockeri.co/image/k4connect/android-build-box)](https://hub.docker.com/r/k4connect/android-build-box/)
 
 
 ## Introduction
@@ -14,7 +14,7 @@ A **docker** image build with **Android** build environment.
 It includes the following components:
 
 * Ubuntu 18.04
-* Android SDK 16 17 18 19 20 21 22 23 24 25 26 27 28
+* Android SDK 16 17 18 19 20 21 22 23 24 25 26 27 28 29
 * Android build tools:
   * 17.0.0
   * 18.1.1
@@ -27,6 +27,7 @@ It includes the following components:
   * 26.0.0 26.0.1 26.0.2
   * 27.0.1 27.0.2 27.0.3
   * 28.0.1 28.0.2 28.0.3
+  * 29.0.1 29.0.2
 * Android NDK r20
 * extra-android-m2repository
 * extra-google-m2repository
@@ -47,9 +48,9 @@ It includes the following components:
 
 The docker image is publicly automated build on [Docker Hub](https://hub.docker.com/r/mingc/android-build-box/) based on the Dockerfile in this repo, so there is no hidden stuff in it. To pull the latest docker image:
 
-    docker pull mingc/android-build-box:latest
+    docker pull k4connect/android-build-box:latest
 
-**Hint:** Use tag to sepecific a stable version rather than `latest` of docker image to avoid break your buid. e.g. `mingc/android-build-box:1.11.0`. Checkout **Tags** (bottom of this page) to see all the available tags.
+**Hint:** Use tag to specific a stable version rather than `latest` of docker image to avoid break your buid. e.g. `k4connect/android-build-box:1.11.0`. Checkout **Tags** (bottom of this page) to see all the available tags.
 
 ## Usage
 
@@ -58,11 +59,11 @@ The docker image is publicly automated build on [Docker Hub](https://hub.docker.
 You can use this docker image to build your Android project with a single docker command:
 
     cd <android project directory>  # change working directory to your project root directory.
-    docker run --rm -v `pwd`:/project mingc/android-build-box bash -c 'cd /project; ./gradlew build'
+    docker run --rm -v `pwd`:/project k4connect/android-build-box bash -c 'cd /project; ./gradlew build'
 
 Run docker image with interactive bash shell:
 
-    docker run -v `pwd`:/project -it mingc/android-build-box bash
+    docker run -v `pwd`:/project -it k4connect/android-build-box bash
 
 
 ### Use the image for a Bitbucket pipeline
@@ -70,7 +71,7 @@ Run docker image with interactive bash shell:
 If you have an Android project in a Bitbucket repository and want to use its pipeline to build it, you can simply specify this docker image.
 Here is an example of `bitbucket-pipelines.yml`
 
-    image: mingc/android-build-box:latest
+    image: k4connect/android-build-box:latest
 
     pipelines:
       default:
@@ -122,7 +123,12 @@ The image itself is more than 5 GB, check your free disk space before building i
 
 ## Tags
 
-Use tag to sepecific a stable version rather than `latest` of docker image to avoid break your buid. e.g. `mingc/android-build-box:1.11.0`
+Use tag to specific a stable version rather than `latest` of docker image to avoid break your buid. e.g. `k4connect/android-build-box:1.12.0`
+
+### 1.12.0
+
+* Add Android SDK 29
+* Add Android Build Tools: 29.0.1, 29.0.2
 
 ### 1.11.0
 
@@ -200,7 +206,7 @@ Use tag to sepecific a stable version rather than `latest` of docker image to av
 
 ## Contribution
 
-If you want to enhance this docker image or fix something, feel free to send [pull request](https://github.com/mingchen/docker-android-build-box/pull/new/master).
+If you want to enhance this docker image or fix something, feel free to send [pull request](https://github.com/k4connect/docker-android-build-box/pull/new/master).
 
 
 ## References
